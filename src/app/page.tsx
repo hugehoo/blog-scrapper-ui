@@ -1,0 +1,26 @@
+import { Article } from '../types/Article';
+import ClientSideContent from '../components/ClientSideContent';
+
+async function getPosts(): Promise<Article[]> {
+  const res = await fetch('http://localhost:8080/posts', { cache: 'no-store' });
+
+  if (!res.ok) {
+    throw new Error('Failed to fetch posts');
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+  const articles = await getPosts();
+  const categories = Array.from(new Set(articles.map(article => article.corp)));
+
+  return (
+    <main>
+      <ClientSideContent
+        initialArticles={articles}
+        categories={categories}
+      />
+    </main>
+  );
+}

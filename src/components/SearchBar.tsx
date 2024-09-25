@@ -46,7 +46,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const url = new URL('http://localhost:8080/search');
+    const url = new URL('https://j7sj1zu2ve.execute-api.ap-northeast-2.amazonaws.com/prod/search');
     const params = new URLSearchParams();
     params.append('keyword', searchTerm);
     url.search = params.toString();

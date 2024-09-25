@@ -51,7 +51,6 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({
   activeCategory,
   onCategoryChange,
 }) => {
-  console.log(categories);
   return (
     <HeaderContainer>
       {categories.map((category) => (

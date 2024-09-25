@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import styled from '@emotion/styled';
-import ArticleCard from './ArticleCard';
-import { Article } from '../types/Article';
+import styled from "@emotion/styled";
+import ArticleCard from "./ArticleCard";
+import { Article } from "../types/Article";
 
 const ArticleList = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ interface ArticlesProps {
 const Articles: React.FC<ArticlesProps> = ({ articles }) => {
   return (
     <ArticleList>
-      {articles.map(article => (
+      {articles.map((article) => (
         <ArticleCard key={article.id} {...article} />
       ))}
     </ArticleList>

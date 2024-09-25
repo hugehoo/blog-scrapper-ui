@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import {useState} from "react";
-import {Article} from "@/types/Article";
 import {useSearch} from "@/components/SearchContext";
 
 
@@ -35,11 +34,9 @@ const SearchButton = styled.button`
   padding-left: 10px;
 `;
 
-interface SearchBarProps {
-  onSearchResults: (results: Article[]) => void;
-}
 
-const SearchBar: React.FC<SearchBarProps> = () => {
+const SearchBar = () => {
+  // @ts-ignore
   const {setSearchResults} = useSearch();
   const [searchTerm, setSearchTerm] = useState('');
 

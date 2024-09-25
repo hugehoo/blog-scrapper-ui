@@ -36,6 +36,8 @@ const SearchButton = styled.button`
 
 
 const SearchBar = () => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const {setSearchResults} = useSearch();
   const [searchTerm, setSearchTerm] = useState('');
 

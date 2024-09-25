@@ -4,6 +4,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { Article } from "../types/Article";
 import Link from "next/link";
+import {Corps} from "@/types/constants";
 
 const Card = styled.div`
   border-bottom: 1px solid rgba(172, 171, 171, 0.6);
@@ -12,20 +13,27 @@ const Card = styled.div`
 
 const Category = styled.span<{ corp: string }>`
   font-size: 14px;
+  font-weight: bolder;
   margin-bottom: 10px;
   display: block;
   color: ${(props) => {
     switch (props.corp) {
-      case "KAKAOPAY":
-        return "#dfdb72"; // 노란색
-      case "TOSS":
-        return "#3f51b5"; // 파란색
-      case "DAANGN":
-        return "#e8633e"; // 초록색
-      case "OLIVE":
-        return "#1ec800"; // 네이버 초록색
+      case Corps.KAKAOPAY.name:
+        return Corps.KAKAOPAY.color;
+      case Corps.TOSS.name:
+        return Corps.TOSS.color;
+      case Corps.DAANGN.name:
+        return Corps.DAANGN.color;
+      case Corps.OLIVE.name:
+        return Corps.OLIVE.color;
+      case Corps.BUZZVIL.name:
+        return Corps.BUZZVIL.color;
+      case Corps.MUSINSA.name:
+        return Corps.MUSINSA.color;
+      case Corps.TWONINE.name:
+        return Corps.TWONINE.color;
       default:
-        return "#40c4ff"; // 기본 색상
+        return "#000000"; // 기본 색상
     }
   }};
 `;

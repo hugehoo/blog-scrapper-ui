@@ -26,7 +26,6 @@ const ClientSideContent: React.FC<ClientSideContentProps> = ({
     );
   };
 
-  console.log(activeCategory);
   const articlesToDisplay =
     searchResults.length > 0 ? searchResults : initialArticles;
 

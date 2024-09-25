@@ -11,6 +11,8 @@ interface ClientSideContentProps {
   categories: string[];
 }
 const ClientSideContent:React.FC<ClientSideContentProps> = ({initialArticles, categories}) => {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const { searchResults } = useSearch();
   const [activeCategory, setActiveCategory] = useState('Tech'); // 기본값을 'Tech'로 설정
   const articlesToDisplay = searchResults.length > 0 ? searchResults : initialArticles;

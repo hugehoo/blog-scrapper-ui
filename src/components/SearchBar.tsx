@@ -36,7 +36,6 @@ const SearchButton = styled.button`
 
 
 const SearchBar = () => {
-  // @ts-expect-error
   const {setSearchResults} = useSearch();
   const [searchTerm, setSearchTerm] = useState('');
 

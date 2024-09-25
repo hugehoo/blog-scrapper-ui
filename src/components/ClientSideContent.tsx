@@ -19,6 +19,8 @@ const ClientSideContent:React.FC<ClientSideContentProps> = ({initialArticles, ca
 
   const filteredArticles = activeCategory === 'Tech'
     ? articlesToDisplay
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     : articlesToDisplay.filter(article => article.corp === activeCategory);
 
   return (

@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React from 'react';
-import styled from '@emotion/styled';
-import {Article} from '../types/Article';
+import React from "react";
+import styled from "@emotion/styled";
+import { Article } from "../types/Article";
 import Link from "next/link";
 
 const Card = styled.div`
@@ -14,20 +14,20 @@ const Category = styled.span<{ corp: string }>`
   font-size: 14px;
   margin-bottom: 10px;
   display: block;
-  color: ${props => {
+  color: ${(props) => {
     switch (props.corp) {
-      case 'KAKAOPAY':
-        return '#dfdb72'; // 노란색
-      case 'TOSS':
-        return '#3f51b5'; // 파란색
-      case 'DAANGN':
-        return '#e8633e'; // 초록색
-      case 'OLIVE':
-        return '#1ec800'; // 네이버 초록색
+      case "KAKAOPAY":
+        return "#dfdb72"; // 노란색
+      case "TOSS":
+        return "#3f51b5"; // 파란색
+      case "DAANGN":
+        return "#e8633e"; // 초록색
+      case "OLIVE":
+        return "#1ec800"; // 네이버 초록색
       default:
-        return '#40c4ff'; // 기본 색상
+        return "#40c4ff"; // 기본 색상
     }
-  }}
+  }};
 `;
 
 const Title = styled.h2`
@@ -41,8 +41,14 @@ const Meta = styled.div`
   color: #999;
 `;
 
-const ArticleCard: React.FC<Article> = ({title, summary, corp, date, url}) => (
-  <Link href={url} style={{textDecoration: "none"}}>
+const ArticleCard: React.FC<Article> = ({
+  title,
+  summary,
+  corp,
+  date,
+  url,
+}) => (
+  <Link href={url} target="_blank" style={{ textDecoration: "none" }}>
     <Card>
       <Category corp={corp}>{corp}</Category>
       <Title>{title}</Title>

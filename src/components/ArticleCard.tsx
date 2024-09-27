@@ -32,6 +32,8 @@ const Category = styled.span<{ corp: string }>`
         return Corps.MUSINSA.color;
       case Corps.TWONINE.name:
         return Corps.TWONINE.color;
+      case Corps.KURLY.name:
+        return Corps.KURLY.color;
       default:
         return "#000000"; // 기본 색상
     }

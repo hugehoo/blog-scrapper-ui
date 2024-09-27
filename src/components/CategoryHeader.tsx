@@ -32,6 +32,8 @@ const CategoryTag = styled.button<{ isActive: boolean; category: string }>`
           return Corps.MUSINSA.color;
         case Corps.TWONINE.name:
           return Corps.TWONINE.color;
+        case Corps.KURLY.name:
+          return Corps.KURLY.color;
         default:
           return "#000000";
       }

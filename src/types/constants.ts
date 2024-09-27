@@ -26,5 +26,9 @@ export const Corps = {
   TWONINE: {
     name: "29CM",
     color: "#000000"
+  },
+  KURLY: {
+    name: "KURLY",
+    color: "#530074"
   }
 } as const;

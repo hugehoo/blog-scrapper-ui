@@ -3,6 +3,10 @@ export const Corps = {
     name: "KAKAOPAY",
     color: "#FFD600"
   },
+  KAKAOBANK: {
+    name: "KAKAOBANK",
+    color: "#FFD600"
+  },
   TOSS: {
     name: "TOSS",
     color: "#2B77F5"
@@ -13,7 +17,7 @@ export const Corps = {
   },
   OLIVE: {
     name: "OLIVE",
-    color: "#1ec800"
+    color: "#9ACC2D"
   },
   BUZZVIL: {
     name: "BUZZVIL",

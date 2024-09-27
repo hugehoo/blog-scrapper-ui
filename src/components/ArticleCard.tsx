@@ -20,6 +20,8 @@ const Category = styled.span<{ corp: string }>`
     switch (props.corp) {
       case Corps.KAKAOPAY.name:
         return Corps.KAKAOPAY.color;
+      case Corps.KAKAOBANK.name:
+        return Corps.KAKAOBANK.color;
       case Corps.TOSS.name:
         return Corps.TOSS.color;
       case Corps.DAANGN.name:

@@ -20,6 +20,8 @@ const CategoryTag = styled.button<{ isActive: boolean; category: string }>`
       switch (props.category) {
         case Corps.KAKAOPAY.name:
           return Corps.KAKAOPAY.color;
+        case Corps.KAKAOBANK.name:
+          return Corps.KAKAOBANK.color;
         case Corps.TOSS.name:
           return Corps.TOSS.color;
         case Corps.DAANGN.name:

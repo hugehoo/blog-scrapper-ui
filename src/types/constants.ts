@@ -38,5 +38,9 @@ export const Corps = {
   DEVSISTERS: {
     name: "DEVSISTERS",
     color: "#FF5400"
+  },
+  OHOUSE: {
+    name: "OHOUSE",
+    color: "#2FBCEB"
   }
 } as const;

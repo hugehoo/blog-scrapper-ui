@@ -34,5 +34,9 @@ export const Corps = {
   KURLY: {
     name: "KURLY",
     color: "#530074"
+  },
+  DEVSISTERS: {
+    name: "DEVSISTERS",
+    color: "#FF5400"
   }
 } as const;

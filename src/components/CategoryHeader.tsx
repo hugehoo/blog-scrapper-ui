@@ -36,6 +36,8 @@ const CategoryTag = styled.button<{ isActive: boolean; category: string }>`
           return Corps.TWONINE.color;
         case Corps.KURLY.name:
           return Corps.KURLY.color;
+        case Corps.DEVSISTERS.name:
+          return Corps.DEVSISTERS.color;
         default:
           return "#000000";
       }
@@ -54,10 +56,10 @@ interface CategoryHeaderProps {
 }
 
 const CategoryHeader: React.FC<CategoryHeaderProps> = ({
-  categories,
-  activeCategory,
-  onCategoryChange,
-}) => {
+                                                         categories,
+                                                         activeCategory,
+                                                         onCategoryChange,
+                                                       }) => {
   return (
     <HeaderContainer>
       {categories.map((category) => (

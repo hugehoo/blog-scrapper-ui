@@ -42,5 +42,9 @@ export const Corps = {
   OHOUSE: {
     name: "OHOUSE",
     color: "#2FBCEB"
+  },
+  LINE: {
+    name: "LINE",
+    color: "#0CAA34"
   }
 } as const;

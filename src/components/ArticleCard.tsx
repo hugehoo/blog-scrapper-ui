@@ -2,7 +2,7 @@
 
 import React from "react";
 import styled from "@emotion/styled";
-import { Article } from "../types/Article";
+import {Article} from "@/types/Article";
 import Link from "next/link";
 import {Corps} from "@/types/constants";
 
@@ -57,19 +57,25 @@ const Meta = styled.div`
   color: #999;
 `;
 
+const truncateText = (text: string, maxLength: number) => {
+  return text.length <= maxLength
+    ? text
+    : text.slice(0, maxLength - 3) + '...';
+};
+
 const ArticleCard: React.FC<Article> = ({
-  title,
-  summary,
-  corp,
-  date,
-  url,
-}) => (
-  <Link href={url} target="_blank" style={{ textDecoration: "none" }}>
+                                          title,
+                                          summary,
+                                          corp,
+                                          date,
+                                          url,
+                                        }) => (
+  <Link href={url} target="_blank" style={{textDecoration: "none"}}>
     <Card>
       <Category corp={corp}>{corp}</Category>
       <Title>{title}</Title>
       <Meta>
-        {date} | {summary}
+        {date} | {truncateText(summary, 170)}
       </Meta>
     </Card>
   </Link>

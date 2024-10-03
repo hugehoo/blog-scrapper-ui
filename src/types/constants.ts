@@ -46,5 +46,9 @@ export const Corps = {
   LINE: {
     name: "LINE",
     color: "#0CAA34"
+  },
+  SOCAR: {
+    name: "SOCAR",
+    color: "#00AEF2"
   }
 } as const;

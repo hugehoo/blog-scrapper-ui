@@ -42,6 +42,8 @@ const Category = styled.span<{ corp: string }>`
         return Corps.OHOUSE.color;
       case Corps.LINE.name:
         return Corps.LINE.color;
+      case Corps.SOCAR.name:
+        return Corps.SOCAR.color;
       default:
         return "#000000"; // 기본 색상
     }

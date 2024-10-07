@@ -3,6 +3,10 @@ export const Corps = {
     name: "KAKAOPAY",
     color: "#FFD600"
   },
+  NAVERPAY: {
+    name: "NAVERPAY",
+    color: "#0FDE5A"
+  },
   KAKAOBANK: {
     name: "KAKAOBANK",
     color: "#FFD600"

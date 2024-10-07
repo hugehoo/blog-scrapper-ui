@@ -44,6 +44,8 @@ const Category = styled.span<{ corp: string }>`
         return Corps.LINE.color;
       case Corps.SOCAR.name:
         return Corps.SOCAR.color;
+      case Corps.NAVERPAY.name:
+        return Corps.NAVERPAY.color;
       default:
         return "#000000"; // 기본 색상
     }

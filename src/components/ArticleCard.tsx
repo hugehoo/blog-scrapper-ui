@@ -8,7 +8,13 @@ import {Corps} from "@/types/constants";
 
 const Card = styled.div`
   border-bottom: 1px solid rgba(172, 171, 171, 0.6);
-  padding: 20px 0;
+  padding: 20px;
+  border-radius: 5px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  &:hover {
+    box-shadow: inset 8px 8px 10px #bebebe, inset -8px -8px 10px #ffffff;
+    transform: translateY(4px);
+  }
 `;
 
 const Category = styled.span<{ corp: string }>`

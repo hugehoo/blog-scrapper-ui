@@ -1,7 +1,7 @@
 import React, {createContext, useState, useContext, ReactNode} from 'react';
 import {Article} from "@/types/Article";
 
-interface SearchContextType {
+export interface SearchContextType {
   searchResults: Article[];
   setSearchResults: (results: Article[]) => void;
 }
@@ -18,11 +18,10 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({children}) =>
   );
 };
 
-export const useSearch = () => {
+export const useSearch : () => SearchContextType | undefined= () => {
   const context = useContext(SearchContext);
   if (context === undefined) {
     console.log(context)
-    // throw new Error('useSearch must be used within a SearchProvider');
   }
   return context;
 };

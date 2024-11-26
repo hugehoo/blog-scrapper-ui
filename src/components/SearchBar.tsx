@@ -208,7 +208,7 @@
 // export default SearchBar;
 
 import styled from "@emotion/styled";
-import {useState, useEffect, useRef} from "react";
+import {useState, useRef} from "react";
 import {useSearch} from "@/components/SearchContext";
 
 // import Articles from "@/components/Articles";
@@ -253,27 +253,27 @@ const SearchButton = styled.button`
   padding-left: 10px;
 `;
 
-const SuggestionsContainer =
-  styled.ul`
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    //width: 59%;
-    list-style-type: none;
-    max-height: 200px;
-    overflow-y: auto;
-    margin-top: 10px;
-  `;
-
-const SuggestionItem = styled.li`
-  padding: 10px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-`;
+// const SuggestionsContainer =
+//   styled.ul`
+//     background: #ffffff;
+//     border-radius: 8px;
+//     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+//     position: absolute;
+//     //width: 59%;
+//     list-style-type: none;
+//     max-height: 200px;
+//     overflow-y: auto;
+//     margin-top: 10px;
+//   `;
+//
+// const SuggestionItem = styled.li`
+//   padding: 10px;
+//   cursor: pointer;
+//
+//   &:hover {
+//     background-color: #f0f0f0;
+//   }
+// `;
 
 const SearchBar = () => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

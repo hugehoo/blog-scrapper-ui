@@ -1,6 +1,6 @@
 import { Article } from '../types/Article';
 import ClientSideContent from '../components/ClientSideContent';
-import {CorpList, Corps} from "@/types/constants";
+import {CorpList} from "@/types/constants";
 
 async function getPosts(): Promise<Article[]> {
   const res = await fetch('https://j7sj1zu2ve.execute-api.ap-northeast-2.amazonaws.com/prod/posts', { cache: 'no-store' });

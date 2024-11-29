@@ -5,17 +5,24 @@ import CategoryHeader from "@/components/CategoryHeader";
 import Articles from "@/components/Articles";
 import {Article} from "@/types/Article";
 import {useSearch} from "@/components/SearchContext";
+import {API_HOST} from "@/types/ApiConstants";
 
 interface ClientSideContentProps {
   initialArticles: Article[];
   categories: string[];
 }
 
-async function extracted(category: string) {
-  // const res = await fetch(`http://localhost:8080/corps?corp=${encodeURI(category)}`,
-  const res = await fetch(`https://j7sj1zu2ve.execute-api.ap-northeast-2.amazonaws.com/prod/corps?corp=${encodeURI(category)}`,
-    // { cache: 'no-store' }
-  );
+async function getPosts(category: string
+                        // , isDefault: boolean
+) {
+  // const posts = `${API_HOST}/posts`;
+  const postsByCorp = `${API_HOST}/corps?corp=${encodeURI(category)}`;
+  const res =
+    // isDefault
+    // ? await fetch(posts, {cache: 'no-store'})
+    // :
+  await fetch(postsByCorp, {cache: 'no-store'});
+
   if (!res.ok) {
     throw new Error('Failed to fetch posts');
   }
@@ -32,9 +39,8 @@ const ClientSideContent: React.FC<ClientSideContentProps> = ({
   const [activeCategory, setActiveCategory] = useState("Tech");
 
   const handleCategoryChange = async (category: string) => {
-    const articles: Article[] = await extracted(category);
+    const articles: Article[] = await getPosts(category);
     setSearchResults(articles)
-
     setActiveCategory((prevCategory) =>
       prevCategory === category ? "Tech" : category
     );
@@ -43,9 +49,18 @@ const ClientSideContent: React.FC<ClientSideContentProps> = ({
   const articlesToDisplay: Article[] =
     searchResults.length > 0 ? searchResults : initialArticles;
 
+
+  // original
+  // const filteredArticles =
+  //   activeCategory === "Tech"
+  //     ? articlesToDisplay
+  //     : articlesToDisplay.filter((article) => article.corp === activeCategory);
+
+
+  // correct
   const filteredArticles =
     activeCategory === "Tech"
-      ? articlesToDisplay
+      ? initialArticles
       : articlesToDisplay.filter((article) => article.corp === activeCategory);
 
   return (

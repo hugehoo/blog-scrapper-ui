@@ -210,6 +210,7 @@
 import styled from "@emotion/styled";
 import {useState, useRef} from "react";
 import {useSearch} from "@/components/SearchContext";
+import {API_HOST} from "@/types/ApiConstants";
 
 // import Articles from "@/components/Articles";
 
@@ -334,7 +335,7 @@ const SearchBar = () => {
   // }, []);
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    const url = new URL('https://j7sj1zu2ve.execute-api.ap-northeast-2.amazonaws.com/prod/search');
+    const url = new URL(`${API_HOST}/search`);
     const params = new URLSearchParams();
     params.append('keyword', searchTerm);
     url.search = params.toString();

@@ -1,9 +1,10 @@
 import { Article } from '../types/Article';
 import ClientSideContent from '../components/ClientSideContent';
 import {CorpList} from "@/types/constants";
+import {API_HOST} from "@/types/ApiConstants";
 
 async function getPosts(): Promise<Article[]> {
-  const res = await fetch('https://j7sj1zu2ve.execute-api.ap-northeast-2.amazonaws.com/prod/posts', { cache: 'no-store' });
+  const res = await fetch(`${API_HOST}/posts`, { cache: 'no-store' });
 
   if (!res.ok) {
     throw new Error('Failed to fetch posts');

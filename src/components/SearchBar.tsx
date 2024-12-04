@@ -277,8 +277,6 @@ const SearchButton = styled.button`
 // `;
 
 const SearchBar = () => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-expect-error
   const {setSearchResults} = useSearch();
   const [searchTerm, setSearchTerm] = useState('');
   // const [suggestions, setSuggestions] = useState<Article[]>([]); // Article[] 타입
@@ -353,11 +351,10 @@ const SearchBar = () => {
         throw new Error('Search request failed');
       }
 
-      const data: Article[] = await res.json(); // Article[] 타입 적용
-      setSearchResults(data); // 최종 검색 결과를 설정
+      const data: Article[] = await res.json();
+      setSearchResults(data);
     } catch (error) {
       console.error('Error during search:', error);
-      // 에러 처리 로직
     }
   };
 

@@ -18,10 +18,10 @@ export const SearchProvider: React.FC<{ children: ReactNode }> = ({children}) =>
   );
 };
 
-export const useSearch : () => SearchContextType | undefined= () => {
+export const useSearch = () => {
   const context = useContext(SearchContext);
   if (context === undefined) {
-    console.log(context)
+    throw new Error('useSearch must be used within a SearchProvider');
   }
   return context;
 };

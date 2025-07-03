@@ -1,6 +1,6 @@
 import { Article } from "../types/Article";
 import ClientSideContent from "../components/ClientSideContent";
-import { CorpList } from "@/types/constants";
+import { CorpList, Corps } from "@/types/constants";
 import { API_HOST } from "@/types/ApiConstants";
 
 async function getPosts(): Promise<Article[]> {
@@ -15,7 +15,11 @@ async function getPosts(): Promise<Article[]> {
 
 export default async function Home() {
   const articles = await getPosts();
-  const categories = Array.from(CorpList.map((corp) => corp.name));
+  const categories = Array.from(
+    CorpList.filter((corp) => corp.name !== Corps.BUZZVIL.name).map(
+      (corp) => corp.name
+    )
+  );
 
   return (
     <main>

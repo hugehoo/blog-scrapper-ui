@@ -2,7 +2,7 @@
 
 import React from "react";
 import styled from "@emotion/styled";
-import {Corps} from "@/types/constants";
+import { Corps } from "@/types/constants";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -64,11 +64,12 @@ interface CategoryHeaderProps {
 }
 
 const CategoryHeader: React.FC<CategoryHeaderProps> = ({
-                                                         categories,
-                                                         activeCategory,
-                                                         onCategoryChange,
-                                                       }) => {
+  categories,
+  activeCategory,
+  onCategoryChange,
+}) => {
   categories.sort((a, b) => a.length - b.length);
+  categories = [Corps.BUZZVIL.name, ...categories];
   return (
     <HeaderContainer>
       {categories.map((category) => (

@@ -55,6 +55,10 @@ export const Corps = {
     name: "SOCAR",
     color: "#00AEF2",
   },
+  WOOWA: {
+    name: "WOOWA",
+    color: "#21C1BC",
+  },
 } as const;
 
 export const CorpList = [

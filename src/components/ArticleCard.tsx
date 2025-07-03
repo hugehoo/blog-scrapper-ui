@@ -2,9 +2,9 @@
 
 import React from "react";
 import styled from "@emotion/styled";
-import {Article} from "@/types/Article";
+import { Article } from "@/types/Article";
 import Link from "next/link";
-import {Corps} from "@/types/constants";
+import { Corps } from "@/types/constants";
 
 const Card = styled.div`
   border-bottom: 1px solid rgba(172, 171, 171, 0.6);
@@ -52,6 +52,8 @@ const Category = styled.span<{ corp: string }>`
         return Corps.SOCAR.color;
       case Corps.NAVERPAY.name:
         return Corps.NAVERPAY.color;
+      case Corps.WOOWA.name:
+        return Corps.WOOWA.color;
       default:
         return "#000000"; // 기본 색상
     }
@@ -70,19 +72,17 @@ const Meta = styled.div`
 `;
 
 const truncateText = (text: string, maxLength: number) => {
-  return text.length <= maxLength
-    ? text
-    : text.slice(0, maxLength - 3) + '...';
+  return text.length <= maxLength ? text : text.slice(0, maxLength - 3) + "...";
 };
 
 const ArticleCard: React.FC<Article> = ({
-                                          title,
-                                          summary,
-                                          corp,
-                                          date,
-                                          url,
-                                        }) => (
-  <Link href={url} target="_blank" style={{textDecoration: "none"}}>
+  title,
+  summary,
+  corp,
+  date,
+  url,
+}) => (
+  <Link href={url} target="_blank" style={{ textDecoration: "none" }}>
     <Card>
       <Category corp={corp}>{corp}</Category>
       <Title>{title}</Title>

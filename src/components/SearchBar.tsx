@@ -97,12 +97,8 @@ const SearchBar = () => {
 
     // 검색어가 비어있으면 초기 포스트 API 호출
     if (searchTerm.trim() === "") {
-      try {
-        const data = await getPosts();
-        setSearchResults(data);
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
+      const data = await getPosts();
+      setSearchResults(data);
       return;
     }
 

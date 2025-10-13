@@ -4,8 +4,6 @@ import { useSearch } from "@/components/SearchContext";
 import { API_HOST } from "@/types/ApiConstants";
 import { getPosts, Article } from "@/utils/api";
 
-// import Articles from "@/components/Articles";
-
 const SearchContainer = styled.div`
   display: flex;
   align-items: center;
@@ -40,58 +38,8 @@ const SearchButton = styled.button`
 const SearchBar = () => {
   const { setSearchResults } = useSearch();
   const [searchTerm, setSearchTerm] = useState("");
-  // const [suggestions, setSuggestions] = useState<Article[]>([]); // Article[] 타입
   const containerRef = useRef<HTMLDivElement>(null); // SearchBar 컨테이너 참조
 
-  // useEffect(() => {
-  //   if (searchTerm.length > 2) {
-  //     const fetchSuggestions = async () => {
-  //       // const url = new URL('https://j7sj1zu2ve.execute-api.ap-northeast-2.amazonaws.com/prod/search');
-  //       const url = new URL('http://localhost:8080/search');
-  //       const params = new URLSearchParams();
-  //       params.append('keyword', searchTerm);
-  //       url.search = params.toString();
-  //
-  //       try {
-  //         const res = await fetch(url.toString(), {
-  //           method: 'GET',
-  //           cache: 'no-store',
-  //           headers: {
-  //             'Content-Type': 'application/json',
-  //           },
-  //         });
-  //
-  //         if (!res.ok) {
-  //           throw new Error('Search request failed');
-  //         }
-  //
-  //         const data: Article[] = await res.json(); // Article[] 타입 적용
-  //         setSuggestions(data); // 자동 검색 결과를 설정
-  //       } catch (error) {
-  //         console.error('Error during search:', error);
-  //         setSuggestions([]);
-  //       }
-  //     };
-  //
-  //     fetchSuggestions();
-  //   } else {
-  //     setSuggestions([]); // 검색어가 짧을 경우 추천을 초기화
-  //   }
-  // }, [searchTerm]);
-
-  // 입력창 외부를 클릭했을 때 자동완성 창 닫기
-  // useEffect(() => {
-  //   const handleClickOutside = (event: MouseEvent) => {
-  //     if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-  //       setSuggestions([]); // 외부 클릭 시 자동완성 목록 닫기
-  //     }
-  //   };
-  //
-  //   document.addEventListener('mousedown', handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener('mousedown', handleClickOutside);
-  //   };
-  // }, []);
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
 

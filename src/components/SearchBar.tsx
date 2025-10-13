@@ -163,7 +163,7 @@ const SearchBar = () => {
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               e.preventDefault();
-              handleSearch(e as any);
+              handleSearch(e as React.FormEvent);
             }
           }}
         />

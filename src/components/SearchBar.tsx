@@ -333,6 +333,31 @@ const SearchBar = () => {
   // }, []);
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // 검색어가 비어있으면 초기 포스트 API 호출
+    if (searchTerm.trim() === '') {
+      try {
+        const res = await fetch(`${API_HOST}/posts`, {
+          method: 'GET',
+          cache: 'no-store',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        if (!res.ok) {
+          throw new Error('Failed to fetch posts');
+        }
+
+        const data: Article[] = await res.json();
+        setSearchResults(data);
+      } catch (error) {
+        console.error('Error fetching posts:', error);
+      }
+      return;
+    }
+    
+    // 검색어가 있으면 검색 API 호출
     const url = new URL(`${API_HOST}/search`);
     const params = new URLSearchParams();
     params.append('keyword', searchTerm);
@@ -366,6 +391,12 @@ const SearchBar = () => {
           placeholder="Search articles..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault();
+              handleSearch(e as any);
+            }
+          }}
         />
         <SearchButton type="submit">🔍</SearchButton>
       </SearchContainer>

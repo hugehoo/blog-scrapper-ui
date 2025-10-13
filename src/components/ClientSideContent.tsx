@@ -5,26 +5,22 @@ import CategoryHeader from "@/components/CategoryHeader";
 import Articles from "@/components/Articles";
 import {Article} from "@/types/Article";
 import {useSearch} from "@/components/SearchContext";
-import {API_HOST} from "@/types/ApiConstants";
+import { getPosts, getPostsByCorp } from "@/utils/api";
 
 interface ClientSideContentProps {
   initialArticles: Article[];
   categories: string[];
 }
 
-async function getPosts(
+async function fetchPostsByCategory(
   activeCategory: string,
   category: string
 ) {
-  const urlPath = activeCategory === category
-    ? '/posts' // toggle 해제
-    : `/corps?corp=${encodeURI(category)}`
-  const res = await fetch(API_HOST + urlPath, {cache: 'no-store'});
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch posts');
-  }
-  return res.json();
+  const articles = activeCategory === category 
+    ? await getPosts() 
+    : await getPostsByCorp(category);
+  
+  return articles;
 }
 
 const ClientSideContent: React.FC<ClientSideContentProps> = ({
@@ -35,7 +31,7 @@ const ClientSideContent: React.FC<ClientSideContentProps> = ({
   const [activeCategory, setActiveCategory] = useState("Tech");
 
   const handleCategoryChange = async (category: string) => {
-    const articles: Article[] = await getPosts(activeCategory, category);
+    const articles: Article[] = await fetchPostsByCategory(activeCategory, category);
     setSearchResults(articles)
     setActiveCategory((prevCategory) =>
       prevCategory === category ? "Tech" : category

@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import { useState, useRef } from "react";
 import { useSearch } from "@/components/SearchContext";
-import { API_HOST } from "@/types/ApiConstants";
-import { getPosts, Article } from "@/utils/api";
+import { getPosts, searchPosts } from "@/utils/api";
 
 const SearchContainer = styled.div`
   display: flex;
@@ -51,29 +50,8 @@ const SearchBar = () => {
     }
 
     // 검색어가 있으면 검색 API 호출
-    const url = new URL(`${API_HOST}/search`);
-    const params = new URLSearchParams();
-    params.append("keyword", searchTerm);
-    url.search = params.toString();
-
-    try {
-      const res = await fetch(url.toString(), {
-        method: "GET",
-        cache: "no-store",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (!res.ok) {
-        throw new Error("Search request failed");
-      }
-
-      const data: Article[] = await res.json();
-      setSearchResults(data);
-    } catch (error) {
-      console.error("Error during search:", error);
-    }
+    const data = await searchPosts(searchTerm);
+    setSearchResults(data);
   };
 
   return (

@@ -2,17 +2,9 @@ import styled from "@emotion/styled";
 import { useState, useRef } from "react";
 import { useSearch } from "@/components/SearchContext";
 import { API_HOST } from "@/types/ApiConstants";
+import { getPosts, Article } from "@/utils/api";
 
 // import Articles from "@/components/Articles";
-
-export interface Article {
-  id: string;
-  title: string;
-  url: string;
-  summary: string;
-  date: string;
-  corp: string;
-}
 
 const SearchContainer = styled.div`
   display: flex;
@@ -106,19 +98,7 @@ const SearchBar = () => {
     // 검색어가 비어있으면 초기 포스트 API 호출
     if (searchTerm.trim() === "") {
       try {
-        const res = await fetch(`${API_HOST}/posts`, {
-          method: "GET",
-          cache: "no-store",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (!res.ok) {
-          throw new Error("Failed to fetch posts");
-        }
-
-        const data: Article[] = await res.json();
+        const data = await getPosts();
         setSearchResults(data);
       } catch (error) {
         console.error("Error fetching posts:", error);

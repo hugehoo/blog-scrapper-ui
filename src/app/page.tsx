@@ -1,17 +1,6 @@
-import { Article } from "../types/Article";
 import ClientSideContent from "../components/ClientSideContent";
 import { CorpList, Corps } from "@/types/constants";
-import { API_HOST } from "@/types/ApiConstants";
-
-async function getPosts(): Promise<Article[]> {
-  const res = await fetch(`${API_HOST}/posts`, { cache: "no-store" });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch posts");
-  }
-
-  return res.json();
-}
+import { getPosts } from "@/utils/api";
 
 export default async function Home() {
   const articles = await getPosts();

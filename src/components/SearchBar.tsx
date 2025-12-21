@@ -46,7 +46,7 @@ const SearchButton = styled.button`
 `;
 
 const SearchBar = () => {
-  const { setSearchResults } = useSearch();
+  const { setSearchResults, setCurrentPage, setHasMore } = useSearch();
   const [searchTerm, setSearchTerm] = useState("");
   // const [suggestions, setSuggestions] = useState<Article[]>([]); // Article[] 타입
   const containerRef = useRef<HTMLDivElement>(null); // SearchBar 컨테이너 참조
@@ -120,6 +120,8 @@ const SearchBar = () => {
 
         const data: Article[] = await res.json();
         setSearchResults(data);
+        setCurrentPage(1);
+        setHasMore(true);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
@@ -147,6 +149,8 @@ const SearchBar = () => {
 
       const data: Article[] = await res.json();
       setSearchResults(data);
+      setCurrentPage(1);
+      setHasMore(true);
     } catch (error) {
       console.error("Error during search:", error);
     }

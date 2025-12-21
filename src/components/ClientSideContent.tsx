@@ -52,7 +52,6 @@ const ClientSideContent: React.FC<ClientSideContentProps> = ({
     searchResults, 
     setSearchResults, 
     appendSearchResults,
-    currentPage,
     setCurrentPage,
     hasMore,
     setHasMore,

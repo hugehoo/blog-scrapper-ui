@@ -87,7 +87,7 @@ export const useInfiniteScroll = ({
         observerRef.current.disconnect();
       }
     };
-  }, [loadMore, threshold]);
+  }, [loadMore, threshold, hasMore, page]);
 
   return {
     isLoading,

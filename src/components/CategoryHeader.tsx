@@ -46,6 +46,8 @@ const CategoryTag = styled.button<{ isActive: boolean; category: string }>`
           return Corps.SOCAR.color;
         case Corps.NAVERPAY.name:
           return Corps.NAVERPAY.color;
+        case Corps.BANKSALAD.name:
+          return Corps.BANKSALAD.color;
         default:
           return "#000000";
       }

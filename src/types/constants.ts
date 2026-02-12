@@ -63,6 +63,10 @@ export const Corps = {
     name: "UBER",
     color: "#000000",
   },
+  BANKSALAD: {
+    name: "BANKSALAD",
+    color: "#06A96C",
+  },
 } as const;
 
 export const CorpList = [
@@ -129,5 +133,9 @@ export const CorpList = [
   {
     name: "UBER",
     color: "#000000",
+  },
+  {
+    name: "BANKSALAD",
+    color: "#06A96C",
   },
 ] as const;

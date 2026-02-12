@@ -54,6 +54,8 @@ const Category = styled.span<{ corp: string }>`
         return Corps.NAVERPAY.color;
       case Corps.WOOWA.name:
         return Corps.WOOWA.color;
+      case Corps.BANKSALAD.name:
+        return Corps.BANKSALAD.color;
       default:
         return "#000000"; // 기본 색상
     }

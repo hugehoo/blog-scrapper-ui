@@ -67,6 +67,10 @@ export const Corps = {
     name: "BANKSALAD",
     color: "#06A96C",
   },
+  SPOTIFY: {
+    name: "SPOTIFY",
+    color: "#1DB954",
+  },
 } as const;
 
 export const CorpList = [
@@ -137,5 +141,9 @@ export const CorpList = [
   {
     name: "BANKSALAD",
     color: "#06A96C",
+  },
+  {
+    name: "SPOTIFY",
+    color: "#1DB954",
   },
 ] as const;
